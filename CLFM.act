@@ -1,0 +1,114 @@
+; Scenario: t00a_2022updates_base
+; Saved on Nov 17 2022 at 1:49:17 pm
+{==================================================================}
+{                          /\     Nova Scotia                      }
+{                         /  \    Department of Natural Resources  }
+{                        /    \   Forestry Division                }
+{ Tel:   (902)-893-5696 /______\  Forest Management Planning       }
+{ Fax:   (902)-893-6102    |      Resource Modeling Section        }
+{==================================================================}
+{ Project     : Crown Lands Strategic Forest Model                 }
+{==================================================================}
+
+
+;Precommercial Thinning
+*ACTION aPT   N  "PCT within existing reneneration inventory"
+  *OPERABLE aPT _CP 1..3
+    ? ? ? ? ? ? ? CD 4567 NRG WLB WLB ? ? EM  _AGE >= 2 and _AGE <= 3
+    ? ? ? ? ? ? ? CD 4567 NRG WLB WLB ? ? HF  _AGE >= 2 and _AGE <= 3
+
+
+;Clearcut
+*ACTION aCC Y "Clear-Cut Harvest in HF"
+  *OPERABLE aCC _CP 1..10
+    ? ? ? ? ? ? ? ? ? ? WLB WLB ? ? HFX _AGE >= 6 and yTv >= 1
+
+
+;Plantation
+*ACTION aPLrSPNH Y   "Red Spruce Plantation - Non-Industrial Non-Herbicide Scenario (PNH) in EM"
+  *OPERABLE aPLrSPNH _CP 1.._LENGTH
+    ? ? ? ? ? ? ? ? 567 DEL WLB WLB ? ? EM  _AGE = 0
+
+
+;Commercial Thinning
+*ACTION aCT N  "Commercial Thinning"
+  *OPERABLE aCT _CP 1.._LENGTH
+    ?  ? ? ? ? ? ? ? ? PLXPCT WLB WLB ? ? HF  yCtElig >= 10 and yCtElig <= 30
+  *PARTIAL aCT
+    ySv yHv
+    ySPBFv yPIEHTLv ;ySMYBv yIHBEROv
+    ySPBFvLog ySPBFvStd ySPBFvPlp
+
+
+;Shelterwood Harvest (Final Overstory Removal will use Variable Retention Harvest)
+*REGIME rSL
+  *ACTION aSL N "Shelterwood Harvest (Regime)"
+    *PARTIAL aSL _SAMEAS aCT
+
+
+;Variable Retention Harvest (replaces clearcutting in the EM)
+*REGIME rVR
+  *ACTION aVR10 N "Variable Retention: 10%"
+    *PARTIAL aVR10 _SAMEAS aCT
+  *ACTION aVR20 N "Variable Retention: 20%"
+    *PARTIAL aVR20 _SAMEAS aCT
+  *ACTION aVR30 N "Variable Retention: 30%"
+    *PARTIAL aVR30 _SAMEAS aCT
+  *ACTION aVRxSPP N "Variable Retention Species Transition"
+  *ACTION aVRxTPC N "Variable Retention Strata Transition: Post Clearcut"
+  *ACTION aVRxTBI N "Variable Retention Strata Transition: Back to Itself"
+  *ACTION aVRxNRG N "Variable Retention NRG State Transition"
+  *ACTION aVRxPCT N "Variable Retention PCT State Transition"
+  *ACTION aVRxAge10 Y "Variable Retention Cohort Transition at Age 10"
+  *ACTION aVRxAge20 Y "Variable Retention Cohort Transition at Age 20"
+  *ACTION aVRxAge30 Y "Variable Retention Cohort Transition at Age 30"
+  *ACTION aPTVR10 N "PCT within Variable Retention 10% Regime"
+  *ACTION aPTVR20 N "PCT within Variable Retention 20% Regime"
+  *ACTION aPTVR30 N "PCT within Variable Retention 30% Regime"
+
+
+;Irregular Shelterwood
+*REGIME rIS
+  *ACTION aIS50 N "Megium(50%) Retention Irregular Shelterwood"
+    *PARTIAL aIS50  _SAMEAS aCT
+  *ACTION aIS70 N "High(70%) Retention Irregular Shelterwood"
+    *PARTIAL aIS70  _SAMEAS aCT
+  *ACTION aISxSPP N "Irregular Shelterwood Species Transition"
+  *ACTION aISxTBI N "Irregular Shelterwood Strata Transition: Back to Itself"
+  *ACTION aISxNRG N "Irregular Shelterwood NRG State Transition"
+  *ACTION aISxPCT N "Irregular Shelterwood PCT State Transition"
+  *ACTION aISxAge30 Y "Irregular Shelterwood Cohort Transition at Age 30"
+  *ACTION aISxAge60 Y "Irregular Shelterwood Cohort Transition at Age 60"
+  *ACTION aPTIS50 N "PCT within Megium(50%) Retention Irregularr Shelterwood Regime"
+  *ACTION aPTIS70 N "PCT within High(70%) Retention Irregularr Shelterwood Regime"
+
+
+;Selection Harvest
+*ACTION aSHi N "Selection Harvest - Initial Entry"
+  *OPERABLE aSHi _CP 1.._LENGTH
+  ? ? ? ? ? ? ? ? ? FTGminusSELSHL WLB WLB BCDE ? EM   yShElig >= 10 and yShElig <= 30 and yEMT >= 50
+  *PARTIAL aSHi  _SAMEAS aCT
+*ACTION aSHr Y "Selection Harvest - Secondary Entries"
+  *OPERABLE aSHr _CP 1.._LENGTH
+  ? ? ? ? ? ? ? ? ? SHX WLB WLB BCDE ? EM   yShElig >= 1 and yShElig <= 30 and yEMT >= 50
+  *PARTIAL aSHr  _SAMEAS aCT
+
+
+;High Production Forestry Regime
+*ACTION aHFremove N "Moves Suitable Suitable HPF Area to the EM"
+  *OPERABLE aHFremove _CP 1..1
+    ? ? ? ? ? ? ? ? ? ? WLB WLB ? ? HFX  _age >= 1
+*ACTION aHFregen Y "Option to Convert Regen in 1-5yr  Ageclass and 1/2 regen in the 6-10yr Ageclass to HPF"
+  *OPERABLE aHFregen _CP 1..1
+    ? ? ? ? ? ? ? ? ? ? WLB WLB ? ? HFX  _age = 1 or _age = 2
+*REGIME rHF
+  *ACTION aPLs  N "Plantation Site Prep (Regime)"
+  *ACTION aPLrs N "Plantation Plant Red Spruce (Regime)"
+  *ACTION aPLws N "Plantation Plant White Spruce (Regime)"
+  *ACTION aPLns N "Plantation Plant Norway Spruce (Regime)"
+  *ACTION aPLh  N "Plantation Herbicide (Regime)"
+  *ACTION aPLw  N "Plantation Weeding (Regime)"
+  *ACTION aPLa  N "Plantation Soil Admendents (Regime)"
+  *ACTION aPLct N "Plantation Commercial Thinning(Regime)"
+    *PARTIAL aPLct _SAMEAS aCT
+  *ACTION aPLcc Y "Plantation Clearcut Harvest (Regime)"

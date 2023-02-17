@@ -1,0 +1,63 @@
+//Session Saved Input Scenarios 
+//Exported: 2020-08-12
+//------------------------------------------------------
+//Saved Scenarios - Input format is pipe('|') delimited
+//  Expects 6 inputs
+//    1) Group Name
+//    2) Scenario Name
+//    3) Scenario Name Short
+//    4) Scenario Description
+//    5) 19 model inputs as comma delimited string
+//    6) Optional model inputs as comma delimited string
+//Scenarios Loaded Into Run Compare Input format: Could be Saved Scenarios or built-in SFA or HPF scenarios
+//  Expects 1 inputs
+//    1) Scenario Name - listed one per line
+//Scenarios Loaded into Regimes: Could be Saved Scenarios or built-in SFA or HPF scenarios
+//  Expects up to 3 inputs ('|' delimited) - listed one per line
+//    1) Scenario Name
+//    2) 1st Child Scenario Name if Exists
+//    3) 2nd Child Scenario Name if Exists
+//------------------------------------------------------
+
+
+//Updated apr 23, 2021: 
+// changed e/l timings to migrate bact to optimal after first entry
+// to avoide bein stuck in sub-optimat mngt
+
+
+
+[ScenariosLoadedForComparsions:Begin]
+HPFv9aCC:Norway Spruce Medium Sites (AC10/11)
+HPFv9aCTCC:Norway Spruce Medium Sites (AC10/11)
+HPFv9aCC:White Spruce Medium Sites (AC10/11)
+HPFv9aCTCC:White Spruce Medium Sites (AC10/11)
+HPFv9aCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCTCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCTCTCC:Red Spruce Medium Sites (AC10/11)
+[ScenariosLoadedForComparsions:End]
+
+
+
+[ScenariosLoadedAsRegimes:Begin]
+HPFv9aCC:Norway Spruce Medium Sites (AC10/11)
+HPFv9aCCe:Norway Spruce Medium Sites (AC10/11)|HPFv9aCC:Norway Spruce Medium Sites (AC10/11)
+HPFv9aCCl:Norway Spruce Medium Sites (AC10/11)|HPFv9aCC:Norway Spruce Medium Sites (AC10/11)
+HPFv9aCTCC:Norway Spruce Medium Sites (AC10/11)
+HPFv9aCTCCe:Norway Spruce Medium Sites (AC10/11)|HPFv9aCTCC:Norway Spruce Medium Sites (AC10/11)
+HPFv9aCTCCl:Norway Spruce Medium Sites (AC10/11)|HPFv9aCTCC:Norway Spruce Medium Sites (AC10/11)
+HPFv9aCC:White Spruce Medium Sites (AC10/11)
+HPFv9aCCe:White Spruce Medium Sites (AC10/11)|HPFv9aCC:White Spruce Medium Sites (AC10/11)
+HPFv9aCCl:White Spruce Medium Sites (AC10/11)|HPFv9aCC:White Spruce Medium Sites (AC10/11)
+HPFv9aCTCC:White Spruce Medium Sites (AC10/11)
+HPFv9aCTCCe:White Spruce Medium Sites (AC10/11)|HPFv9aCTCC:White Spruce Medium Sites (AC10/11)
+HPFv9aCTCCl:White Spruce Medium Sites (AC10/11)|HPFv9aCTCC:White Spruce Medium Sites (AC10/11)
+HPFv9aCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCCe:Red Spruce Medium Sites (AC10/11)|HPFv9aCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCCl:Red Spruce Medium Sites (AC10/11)|HPFv9aCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCTCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCTCCe:Red Spruce Medium Sites (AC10/11)|HPFv9aCTCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCTCCl:Red Spruce Medium Sites (AC10/11)|HPFv9aCTCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCTCTCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCTCTCCe:Red Spruce Medium Sites (AC10/11)|HPFv9aCTCTCC:Red Spruce Medium Sites (AC10/11)
+HPFv9aCTCTCCl:Red Spruce Medium Sites (AC10/11)|HPFv9aCTCTCC:Red Spruce Medium Sites (AC10/11)
+[ScenariosLoadedAsRegimes:End]
