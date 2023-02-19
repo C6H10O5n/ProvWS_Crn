@@ -1,5 +1,3 @@
-; Scenario: t00a_2022updates_base
-; Saved on Nov 17 2022 at 1:49:18 pm
 {==================================================================}
 {                          /\     Nova Scotia                      }
 {                         /  \    Department of Natural Resources  }
@@ -30,8 +28,6 @@
   ;    oacHVvSPBFbyMUsf
   ;    oacHVvPIEHTLbyMUsf
 
-
-
 ;<ENDGROUP> Misc Woodstock Reports
 
 
@@ -41,7 +37,7 @@
 
   ;Harvest Outputs <GROUP>
   ;-------------------------------------------------
-  Foreach XX in (CRNALL,#opMUs)
+  Foreach XX in (#opMUs)
     FOREACH YY IN (NULL,tEM,tHF)
 
       ;Total (Merchantable Bole) Operable Inventory by Species Group (gmt)[XX]
@@ -219,7 +215,7 @@
 
   ;HPF Outputs <GROUP>
   ;-------------------------------------------------
-  FOREACH XX in (CRNALL,#opMUs)
+  FOREACH XX in (#opMUs)
     ;Prescription By Species
     oHpfOnRxRsByMu(XX)      0.._LENGTH
     oHpfOnRxWsByMu(XX)      0.._LENGTH
@@ -274,7 +270,7 @@
 
   ;EM Outputs <GROUP>
   ;-------------------------------------------------
-  FOREACH XX IN (CRNALL,#opMUs)
+  FOREACH XX IN (#opMUs)
     FOREACH YY IN (NULL,tEM,tHF)
 
       ;Ecological Matrix Treatment Class
@@ -434,7 +430,7 @@
 
   ;Carbon Outputs <GROUP>
   Foreach XX in (EM,HF,NULL)
-    FOREACH YY IN (CRNALL,#opMUs)
+    FOREACH YY IN (#opMUs)
 
       ;Carbon Forest by Landbase
       FOREACH ZZ IN(WLB,RLB,NULL)
@@ -488,7 +484,7 @@
 
   ;Climate Change Outputs <GROUP>
   Foreach XX in (EM,HF,NULL)
-    FOREACH YY IN (CRNALL,#opMUs)
+    FOREACH YY IN (#opMUs)
       FOREACH ZZ IN(WLB,RLB,NULL)
         FOREACH KK IN(#opERs,NULL)
 
@@ -513,73 +509,3 @@
   ;<ENDGROUP> Climate Change Outputs
 
 ;<ENDGROUP> clfmGraphics.csv
-
-
-;Carbon Export Data <GROUP>
-;-----------------------------------------------------------------------
-*TARGET Carbon.dbf
-  Foreach XX in (EM,HF,NULL)
-    FOREACH YY IN (CRNALL,#opMUs)
-
-      ;Carbon Forest by Landbase
-      FOREACH ZZ IN(WLB,RLB,NULL)
-        oBioc.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)             0.._LENGTH
-        oDOMNoSoil.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)        0.._LENGTH
-        oSoilc.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)            0.._LENGTH
-        oForc.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)             0.._LENGTH
-        ;Carbon Emissions/Removals
-        oATMBioc.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)          0.._LENGTH
-        oBiocEmissions.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)    0.._LENGTH
-        oBiocRemovals.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)     0.._LENGTH
-        oATMDOMc.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)          0.._LENGTH
-        oDOMcEmissions.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)    0.._LENGTH
-        oDOMcRemovals.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)     0.._LENGTH
-        oATMForc.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)          0.._LENGTH
-        oForcEmissions.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)    0.._LENGTH
-        oForcRemovals.IF(ZZ=NULL,,ZZ)byMU.IF(XX=NULL,,tXX)(YY)     0.._LENGTH
-
-      ENDFOR
-
-      ;Carbon Harvested Wood Products
-      oSolidSWcByMU.IF(XX=NULL,,tXX)(YY)       0.._LENGTH
-      oSolidHWcByMU.IF(XX=NULL,,tXX)(YY)       0.._LENGTH
-      oPulpSWcbyMU.IF(XX=NULL,,tXX)(YY)        0.._LENGTH
-      oPulpHWcbyMU.IF(XX=NULL,,tXX)(YY)        0.._LENGTH
-      oBiomassSWcbyMU.IF(XX=NULL,,tXX)(YY)     0.._LENGTH
-      oBiomassHWcbyMU.IF(XX=NULL,,tXX)(YY)     0.._LENGTH
-      oTotalHWPcbyMU.IF(XX=NULL,,tXX)(YY)      0.._LENGTH
-      oCulmSolidSWcByMU.IF(XX=NULL,,tXX)(YY)   0.._LENGTH
-      oCulmSolidHWcByMU.IF(XX=NULL,,tXX)(YY)   0.._LENGTH
-      oCulmPulpSWcByMU.IF(XX=NULL,,tXX)(YY)    0.._LENGTH
-      oCulmPulpHWcByMU.IF(XX=NULL,,tXX)(YY)    0.._LENGTH
-      oCulmHWPcByMU.IF(XX=NULL,,tXX)(YY)       0.._LENGTH
-      ;Carbon Emission/Removals
-      oATMHWPcbyMU.IF(XX=NULL,,tXX)(YY)        1.._LENGTH
-      oATMTotalcbyMU.IF(XX=NULL,,tXX)(YY)      1.._LENGTH
-      oTotalEmissions.IF(XX=NULL,,tXX)(YY)     1.._LENGTH
-      oTotalRemovals.IF(XX=NULL,,tXX)(YY)      1.._LENGTH
-
-    ENDFOR
-  ENDFOR
-;<ENDGROUP> Carbon.dbf
-
-
-;PHP Species Habitat Indicators <GROUP>
-;-----------------------------------------------------------------------
-*TARGET PhpHabitat.dbf
-  oHabPilPeckerFLB      0.._LENGTH
-  oHabBarredOwlFLB      0.._LENGTH
-  oHabBickThrushFLB     0.._LENGTH
-  oHabBBPeckerFLB       0.._LENGTH
-  oHabWWCrossFLB        0.._LENGTH
-
-  oWarblerFLB           0.._LENGTH
-  oChimneySwiftFLB      0.._LENGTH
-  oNightHawkFLB         0.._LENGTH
-  oPeeweeHabFLB         0.._LENGTH
-  oWhippoorwillHabFLB   0.._LENGTH
-  oGrossbeakHabFLB      0.._LENGTH
-  oOliveHabFLB          0.._LENGTH
-  oRustyBlackBirdHabFLB 0.._LENGTH
-  oWoodThrushHabFLB     0.._LENGTH
-;<ENDGROUP> PhpHabitat.dbf

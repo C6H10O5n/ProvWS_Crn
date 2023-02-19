@@ -18,7 +18,7 @@ FOREACH XX IN(CRNALL) ;,#opMUs)
     .IF(XX.rec = 1,*FONT2 "Tahoma" 8 0 0000 )
     .IF(XX.rec = 1,*FONT3 "Tahoma" 8 0 0000 )
     .IF(XX.rec = 1,*YEARS 2014 5)
-    .IF(XX.rec = 1,*SAVEIMAGEAS clfm.jpg)
+    ;.IF(XX.rec = 1,*SAVEIMAGEAS clfm.jpg)
     *WINDOW {1}(696,714,1000,1000) "Ageclass Distribution by Management Status (ha)[XX]" _STACK
       _LEGEND (935,782)
     _YAXIS(*,*,*,6)
