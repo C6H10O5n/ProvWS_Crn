@@ -21,7 +21,7 @@
 
  ;Selection Harvest Parameters
  ;30 Inputs: selMinVol,selMinAge,selMaxAge,selMinTolerantPct,selMinLongLivedPct,selOffsetTime1,selOffsetTime2,selRecoveryTime,selMinPreCutVolRecoveryRatio,selRem,selMinSppRetention,selGainCharCode,selMinCC,selMinSC,sel2ndEenryTimingOptions,[15 spp priorities]
- ySHparameters _DLL(_VARIANT) #CLFMDLL getyld_setshparameters(25,60,100,10,50,10,20,20,50,30,20,14,2,4,1, 5,3,4,1,4,3,5,2,2,1,1,5,4,4,4)
+ ySHparameters _DLL(_VARIANT) #CLFMDLL getyld_setshparameters(40,60,100,10,50,10,20,20,50,30,20,14,2,4,1, 5,3,4,1,4,3,5,2,2,1,1,5,4,4,4)
 
 
 

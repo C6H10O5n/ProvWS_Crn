@@ -282,12 +282,12 @@
 
 *REGIME rIS Irregular Shelterwood ;<GROUP>
   *OPERABLE rIS _CP 1.._LENGTH
-    ? ? ? ? ? ? ? ? ? FTGminusSEL  WLB WLB ? ? ?  yHrvCls >= 1 and  yEMTSBA >= 1 and yTv >= 40 AND _AGE <= 30
+    ? ? ? ? ? ? ? ? ? FTGminusSEL  WLB WLB ? ? ?  yHrvCls >= 1 and  yEMTSBA >= 1 AND _AGE <= 30
 
 
     ;Acadian Zone Medium Retention RXs <GROUP>
     *PRESCRIPTION pIS50NRGNRG ;Natural Stands, no PCT
-      *OPERABLE ? ? ? ? ? ? ? ? ? ? ? ? CDE ? ? yEMT >= 40 and yEMT <= 42
+      *OPERABLE ? ? ? ? ? ? ? ? ? ? ? ? CDE ? ? yEMT >= 40 and yEMT <= 42 and yTv >= 80
              _RXPERIOD _ACTION   _ENTRY   yHv  ySv  ySPBFv yPIEHTLv yIniIS yOnIS yB   yD   yS
              0         aIS50     _INITIAL 100% 100% 100%   100%     1      1     100% 100% 100%
              0         -         -        50%  50%  50%    50%      1      1     51%  180% 100%
@@ -317,7 +317,7 @@
              24        aISxAge30 _FINAL   100% 100% 100%   100%     0      1     100% 100% 100%
 
     *PRESCRIPTION pIS50PCTNRG ;Natural Stands, PCT during/after first cycle only
-      *OPERABLE ? ? ? ? ? ? ? ? 4567 ? ? ? CDE ? ? yEMT >= 40 and yEMT <= 42
+      *OPERABLE ? ? ? ? ? ? ? ? 4567 ? ? ? CDE ? ? yEMT >= 40 and yEMT <= 42 and yTv >= 80
              _RXPERIOD _ACTION   _ENTRY   yHv  ySv  ySPBFv yPIEHTLv yIniIS yOnIS yB   yD   yS
              0         aIS50     _INITIAL 100% 100% 100%   100%     1      1     100% 100% 100%
              0         -         -        50%  50%  50%    50%      1      1     51%  180% 100%
@@ -348,7 +348,7 @@
              24        aISxAge30 _FINAL   100% 100% 100%   100%     0      1     100% 100% 100%
 
     *PRESCRIPTION pIS50PCTPCT ;Natural Stands, PCT during/after each cycle
-      *OPERABLE ? ? ? ? ? ? ? ? 4567 ? ? ? CDE ? ? yEMT >= 40 and yEMT <= 42
+      *OPERABLE ? ? ? ? ? ? ? ? 4567 ? ? ? CDE ? ? yEMT >= 40 and yEMT <= 42 and yTv >= 80
              _RXPERIOD _ACTION   _ENTRY   yHv  ySv  ySPBFv yPIEHTLv yIniIS yOnIS yB   yD   yS
              0         aIS50     _INITIAL 100% 100% 100%   100%     1      1     100% 100% 100%
              0         -         -        50%  50%  50%    50%      1      1     51%  180% 100%
@@ -380,7 +380,7 @@
              26        aPTIS50   _FINAL   100% 100% 100%   100%     0      1     100% 100% 100%
 
     *PRESCRIPTION pIS50NRGPCT ;Natural Stands, PCT during second cycle
-      *OPERABLE ? ? ? ? ? ? ? ? 4567 ? ? ? CDE ? ? yEMT >= 40 and yEMT <= 42
+      *OPERABLE ? ? ? ? ? ? ? ? 4567 ? ? ? CDE ? ? yEMT >= 40 and yEMT <= 42 and yTv >= 80
              _RXPERIOD _ACTION   _ENTRY   yHv  ySv  ySPBFv yPIEHTLv yIniIS yOnIS yB   yD   yS
              0         aIS50     _INITIAL 100% 100% 100%   100%     1      1     100% 100% 100%
              0         -         -        50%  50%  50%    50%      1      1     51%  180% 100%
@@ -413,7 +413,7 @@
 
     ;Acadian Zone High Retention RXs <GROUP>
     *PRESCRIPTION pIS70NRG ;Natural Stands
-      *OPERABLE ? ? ? ? ? ? ? ? ? ? ? ? BCDE ? ? yEMT >= 50 and yEMT <= 61
+      *OPERABLE ? ? ? ? ? ? ? ? ? ? ? ? BCDE ? ? yEMT >= 50 and yEMT <= 61 and yTv >= 120
              _RXPERIOD _ACTION   _ENTRY   yHv  ySv  ySPBFv yPIEHTLv yIniIS yOnIS yB   yD   yS
              0         aIS70     _INITIAL 100% 100% 100%   100%     1      1     100% 100% 100%
              0         -         -        70%  70%  70%    70%      1      1     71%  144% 100%
@@ -455,7 +455,7 @@
              24        aISxAge60 _FINAL   100% 100% 100%   100%     0      1     100% 100% 100%
 
     *PRESCRIPTION pIS70PCT ;Natural Stands
-      *OPERABLE ? ? ? ? ? ? ? ? 4567 ? ? ? BCDE ? ? yEMT >= 50 and yEMT <= 61
+      *OPERABLE ? ? ? ? ? ? ? ? 4567 ? ? ? BCDE ? ? yEMT >= 50 and yEMT <= 61 and yTv >= 120
              _RXPERIOD _ACTION   _ENTRY   yHv  ySv  ySPBFv yPIEHTLv yIniIS yOnIS yB   yD   yS
              0         aIS70     _INITIAL 100% 100% 100%   100%     1      1     100% 100% 100%
              0         -         -        70%  70%  70%    70%      1      1     71%  144% 100%
