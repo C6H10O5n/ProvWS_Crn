@@ -12,7 +12,7 @@
   ;----------------------------------------------------------------------
 
     ;Silviculture Budget Limit: All funded harvest and silviculture activities
-      oSilvCostbyMUsf <= 20,000,000  1.._LENGTH
+      ;oSilvCostbyMUsf <= 20,000,000  1.._LENGTH
 
     ;Global Harvest Flow Policy: On Softwood
       FOREACH XX IN(#opMUs)
