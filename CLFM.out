@@ -10,7 +10,7 @@
 
   ;EBM-Theme1 Based
   ;-----------------------------------------------------------
-  FOREACH XX IN(EM,HF,CF,NULL) ;Triad
+  FOREACH XX IN(EM,HF,NULL) ;Triad
     FOREACH ZZ IN(FLB,WLB,RLB) ;Landbase
       FOREACH VV IN(#opPNVs,NULL) ;PNV
 
@@ -178,7 +178,7 @@
 
   ;PNV MDAR Percentages By ER/NDR
   ;-----------------------------------------------------------
-  FOREACH XX IN(EM,HF,CF,NULL) ;Triad
+  FOREACH XX IN(EM,HF,NULL) ;Triad
     FOREACH ZZ IN (#opPNVs,NULL) ;PNV
       FOREACH YY IN (L,M,H) ;Severity Class
 
@@ -212,7 +212,7 @@
 
 *GROUP Wildlife ; <GROUP>
 
-  FOREACH XX IN(EM,HF,CF,NULL) ;Triad
+  FOREACH XX IN(EM,HF,NULL) ;Triad
     FOREACH ZZ IN (FLB,WLB,RLB) ;Landbase
 
       ;Combined Moose/DWA/Marten
@@ -697,12 +697,12 @@
         ENDFOR
 
       ;by ELC/NDR Zone with Scalefactor [osf,osf_mos]
-      *OUTPUT ohvKKHabyEU.IF(XX=NULL,,tXX)sf(_TH1) Area Harvested (KK Actions) - ha, ManagementUnit:ThemeBased.IF(XX=NULL, , Triad Zone XX) with Operational Adjustment Factor [osf,osf_mos]
+      *OUTPUT ohvKKHabyEU.IF(XX=NULL,,tXX)sf(_TH1) Area Harvested (KK Actions) - ha, Th1Based:ThemeBased.IF(XX=NULL, , Triad Zone XX) with Operational Adjustment Factor [osf,osf_mos]
         *SOURCE ohvKKHabyEU.IF(XX=NULL,,tXX) * ySFosf
 
       ;Harvest by SUSMAI Class
       FOREACH ZZ IN(#TH13Rep,NULL) ;NBM SUSMAI Class
-      *OUTPUT ohvKKHabyEUnbmclsZZ.IF(XX=NULL,,tXX)sf(_TH1) Area Harvested (KK Actions) - ha, ManagementUnit:ThemeBased.IF(ZZ=NULL, , - SUSMAICls:ZZ).IF(XX=NULL, , Triad Zone XX)
+      *OUTPUT ohvKKHabyEUnbmclsZZ.IF(XX=NULL,,tXX)sf(_TH1) Area Harvested (KK Actions) - ha, Th1Based:ThemeBased.IF(ZZ=NULL, , - SUSMAICls:ZZ).IF(XX=NULL, , Triad Zone XX)
         FOREACH YY IN(#KK)
           .IF(YY.rec = 1,*SOURCE,       ) ? ? ? ? ? ? ? ? ? ? ? ? .IF(ZZ=NULL,?,ZZ) ? .IF(XX=NULL,?,XX) .REPLACE(.replace(YY,"[","("),"]",")") _AREA * .IF(#isMosAdjActYY = 1,ySFosf,ySFosfNoMos) .IF(YY.rec < YY.count,+)
         ENDFOR
@@ -1095,7 +1095,7 @@
 *GROUP ClimateChange; <GROUP>
   ;Climate Change Vulnerability Index - Species Level
   FOREACH XX IN(RS,BS,WS,BF,WP,RP,EH,TL,RM,WB,XA,SM,BE,YB,RO)
-    FOREACH ZZ IN(EM,HF,CF,NULL)
+    FOREACH ZZ IN(EM,HF,NULL)
       FOREACH JJ IN(WLB,RLB,NULL)
         FOREACH KK IN(#opERs,NULL)
          *OUTPUT oCCVXX.IF(KK=NULL,,KK)RCP26.IF(ZZ=NULL,,tZZ).IF(JJ=NULL,,JJ)(_TH2) Climate Change Vulnerability XX KK .IF(ZZ=NULL,,tZZ) .IF(JJ=NULL,,JJ) RCP 2.6
@@ -1106,7 +1106,7 @@
       ENDFOR
     ENDFOR
   ENDFOR
-  FOREACH ZZ IN(EM,HF,CF,NULL)
+  FOREACH ZZ IN(EM,HF,NULL)
     FOREACH JJ IN(WLB,RLB,NULL)
      FOREACH KK IN(#opERs,NULL)
           ;Climate Change Vulnerability Index - Ecoregion Level
