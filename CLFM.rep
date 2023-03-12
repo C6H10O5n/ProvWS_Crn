@@ -290,8 +290,8 @@
   ;Wildlife Outputs <GROUP>
   ;-------------------------------------------------
   FOREACH XX IN (EM,HF,NULL) ;Triad
-    FOREACH YY IN (NDRALL,#opEUs)
-      FOREACH ZZ IN (YY,#opYYEUs)
+    FOREACH YY IN (#opEUs)
+      FOREACH ZZ IN (#opYYEUs)
         FOREACH KK IN (FLB,WLB,RLB)
 
           ;Moose
@@ -326,8 +326,8 @@
 
   ;PNV Outputs <GROUP>
   ;-------------------------------------------------
-  FOREACH XX IN (EM,CF,NULL) ;Triad
-    FOREACH ZZ IN(NDRALL,#opEUs)
+  FOREACH XX IN (EM,HF,NULL) ;Triad
+    FOREACH ZZ IN(#opEUs)
       FOREACH KK IN(NULL,#opPNVs)
         FOREACH YY IN (L,M,H) ;Severity Class
 
@@ -342,7 +342,7 @@
 
   ;NBM Outputs <GROUP>
   ;-------------------------------------------------
-  FOREACH XX IN (EM,CF,NULL) ;Triad
+  FOREACH XX IN (EM,HF,NULL) ;Triad
         FOREACH ZZ IN(#TH13Rep,NULL)
           ohvKKHabyEUnbmclsZZ.IF(XX=NULL,,tXX)sf 0.._LENGTH
         ENDFOR
@@ -352,8 +352,8 @@
   ;EBM Outputs <GROUP>
   ;-------------------------------------------------
   FOREACH XX IN (EM,HF,NULL) ;Triad
-    FOREACH YY IN (NDRALL,#opEUs)
-      FOREACH ZZ IN (YY,#opYYEUs)
+    FOREACH YY IN (#opEUs)
+      FOREACH ZZ IN (#opYYEUs)
 
         FOREACH KK IN (FLB,WLB,RLB)
           oELChaKK.IF(XX=NULL,,tXX)(ZZ)
@@ -415,7 +415,7 @@
           oSMHePiSpKK.IF(XX=NULL,,tXX)(ZZ)  0.._LENGTH
         ENDFOR
 
-        FOREACH KK IN (#acHVgr2,acHV)
+        FOREACH KK IN (#acHVgr2)
           ohvKKHabyEU.IF(XX=NULL,,tXX)sf(ZZ)  0.._LENGTH
         ENDFOR
 
