@@ -1,0 +1,38 @@
+//Session Saved Input Scenarios 
+//Exported: 2023-02-22 4:19 PM
+//------------------------------------------------------
+//Saved Scenarios - Input format is pipe('|') delimited
+//  Expects 6 inputs
+//    1) Group Name
+//    2) Scenario Name
+//    3) Scenario Name Short
+//    4) Scenario Description
+//    5) 19 model inputs as comma delimited string
+//    6) Optional model inputs as comma delimited string
+//Scenarios Loaded Into Run Compare Input format: Could be Saved Scenarios or built-in SFA or HPF scenarios
+//  Expects 1 inputs
+//    1) Scenario Name - listed one per line
+//Scenarios Loaded into Regimes: Could be Saved Scenarios or built-in SFA or HPF scenarios
+//  Expects up to 3 inputs ('|' delimited) - listed one per line
+//    1) Scenario Name
+//    2) 1st Child Scenario Name if Exists
+//    3) 2nd Child Scenario Name if Exists
+//------------------------------------------------------
+
+[Scenarios:Begin]
+HPFv10aCC|WS Elite SIB 30m - CC|WSE(AC10-11)||3,Y,N,WS,0,29.94,0,2.4,2.4,30,0,0,0,0,0,0,0,0,85|PPEStockAdj:Y,Ct1TrailAdj:10,Ct2TrailAdj:none,PltAhModel:fAHt2022a,PltTfModel:fTFt2022a,PltTdModel:fTDt2022a,PltIniTdModel:fTDt2022a,PltCtTdModel:fTDt2022a,PltTfMfRatModel:fMFt2022a,PltTbaMbaRatModel:fMBAt2022a,PltMfBfRatModel:fBFt2022a,PltMbaBbaRatModel:fBBAt2022a,PltPostEstabStkModel:fSTK2022a,NatTfModel:fTF2022a,VolCalcMethod:prdYldWeisRatioEq
+HPFv10aCC|fff|WS(AC10-11)||3,Y,N,WS,0,24.59,0,2.4,2.4,40,0,0,0,0,0,0,0,0,85|PPEStockAdj:Y,Ct1TrailAdj:10,Ct2TrailAdj:none,PltAhModel:fAHt2022a,PltTfModel:fTFt2022a,PltTdModel:fTDt2022a,PltIniTdModel:fTDt2022a,PltCtTdModel:fTDt2022a,PltTfMfRatModel:fMFt2022a,PltTbaMbaRatModel:fMBAt2022a,PltMfBfRatModel:fBFt2022a,PltMbaBbaRatModel:fBBAt2022a,PltPostEstabStkModel:fSTK2022a,NatTfModel:fTF2022a,VolCalcMethod:prdYldWeisRatioEq
+HPFv10aCC|WS SI 25m - CC|WS(AC10-11)||3,Y,N,WS,0,24.59,0,2.4,2.4,40,0,0,0,0,0,0,0,0,85|PPEStockAdj:Y,Ct1TrailAdj:10,Ct2TrailAdj:none,PltAhModel:fAHt2022a,PltTfModel:fTFt2022a,PltTdModel:fTDt2022a,PltIniTdModel:fTDt2022a,PltCtTdModel:fTDt2022a,PltTfMfRatModel:fMFt2022a,PltTbaMbaRatModel:fMBAt2022a,PltMfBfRatModel:fBFt2022a,PltMbaBbaRatModel:fBBAt2022a,PltPostEstabStkModel:fSTK2022a,NatTfModel:fTF2022a,VolCalcMethod:prdYldWeisRatioEq
+HPFv10aCTCC|WS Elite SI 30m - CCCT|WS(AC10-11)||3,Y,N,WS,0,24.59,0,2.4,2.4,45,0,25,0,0,0,30,0,0,85|PPEStockAdj:Y,Ct1TrailAdj:10,Ct2TrailAdj:none,PltAhModel:fAHt2022a,PltTfModel:fTFt2022a,PltTdModel:fTDt2022a,PltIniTdModel:fTDt2022a,PltCtTdModel:fTDt2022a,PltTfMfRatModel:fMFt2022a,PltTbaMbaRatModel:fMBAt2022a,PltMfBfRatModel:fBFt2022a,PltMbaBbaRatModel:fBBAt2022a,PltPostEstabStkModel:fSTK2022a,NatTfModel:fTF2022a,VolCalcMethod:prdYldWeisRatioEq
+HPFv10aCTCC|WS SI 25m - CCCT|WS(AC10-11)||3,Y,N,WS,0,24.59,0,2.4,2.4,45,0,25,0,0,0,30,0,0,85|PPEStockAdj:Y,Ct1TrailAdj:10,Ct2TrailAdj:none,PltAhModel:fAHt2022a,PltTfModel:fTFt2022a,PltTdModel:fTDt2022a,PltIniTdModel:fTDt2022a,PltCtTdModel:fTDt2022a,PltTfMfRatModel:fMFt2022a,PltTbaMbaRatModel:fMBAt2022a,PltMfBfRatModel:fBFt2022a,PltMbaBbaRatModel:fBBAt2022a,PltPostEstabStkModel:fSTK2022a,NatTfModel:fTF2022a,VolCalcMethod:prdYldWeisRatioEq
+HPFv10aCTCC|WS Elite SI 30m -CCCT|WSE(AC10-11)||3,Y,N,WS,0,29.94,0,2.4,2.4,35,0,20,0,0,0,30,0,0,85|PPEStockAdj:Y,Ct1TrailAdj:10,Ct2TrailAdj:none,PltAhModel:fAHt2022a,PltTfModel:fTFt2022a,PltTdModel:fTDt2022a,PltIniTdModel:fTDt2022a,PltCtTdModel:fTDt2022a,PltTfMfRatModel:fMFt2022a,PltTbaMbaRatModel:fMBAt2022a,PltMfBfRatModel:fBFt2022a,PltMbaBbaRatModel:fBBAt2022a,PltPostEstabStkModel:fSTK2022a,NatTfModel:fTF2022a,VolCalcMethod:prdYldWeisRatioEq
+HPFv10aCTCC|WS Elite SI 30m CC-CT|WSE(AC10-11)||3,Y,N,WS,0,29.94,0,2.4,2.4,35,0,20,0,0,0,30,0,0,85|PPEStockAdj:Y,Ct1TrailAdj:10,Ct2TrailAdj:none,PltAhModel:fAHt2022a,PltTfModel:fTFt2022a,PltTdModel:fTDt2022a,PltIniTdModel:fTDt2022a,PltCtTdModel:fTDt2022a,PltTfMfRatModel:fMFt2022a,PltTbaMbaRatModel:fMBAt2022a,PltMfBfRatModel:fBFt2022a,PltMbaBbaRatModel:fBBAt2022a,PltPostEstabStkModel:fSTK2022a,NatTfModel:fTF2022a,VolCalcMethod:prdYldWeisRatioEq
+HPFv10aCTCC|WS SI 25m CC-CT|WS(AC10-11)||3,Y,N,WS,0,24.59,0,2.4,2.4,45,0,25,0,0,0,30,0,0,85|PPEStockAdj:Y,Ct1TrailAdj:10,Ct2TrailAdj:none,PltAhModel:fAHt2022a,PltTfModel:fTFt2022a,PltTdModel:fTDt2022a,PltIniTdModel:fTDt2022a,PltCtTdModel:fTDt2022a,PltTfMfRatModel:fMFt2022a,PltTbaMbaRatModel:fMBAt2022a,PltMfBfRatModel:fBFt2022a,PltMbaBbaRatModel:fBBAt2022a,PltPostEstabStkModel:fSTK2022a,NatTfModel:fTF2022a,VolCalcMethod:prdYldWeisRatioEq
+[Scenarios:End]
+
+
+
+[ScenariosLoadedForComparsions:Begin]
+HPFv10aCTCC:White Spruce Elite Medium Sites (AC10/11)
+HPFv10aCTCC:White Spruce Medium Sites (AC10/11)
+[ScenariosLoadedForComparsions:End]

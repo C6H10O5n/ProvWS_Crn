@@ -1,0 +1,41 @@
+//Session Saved Input Scenarios 
+//Exported: 2023-02-03
+//------------------------------------------------------
+//Saved Scenarios - Input format is pipe('|') delimited
+//  Expects 6 inputs
+//    1) Group Name
+//    2) Scenario Name
+//    3) Scenario Name Short
+//    4) Scenario Description
+//    5) 19 model inputs as comma delimited string
+//    6) Optional model inputs as comma delimited string
+//Scenarios Loaded Into Run Compare Input format: Could be Saved Scenarios or built-in SFA or HPF scenarios
+//  Expects 1 inputs
+//    1) Scenario Name - listed one per line
+//Scenarios Loaded into Regimes: Could be Saved Scenarios or built-in SFA or HPF scenarios
+//  Expects up to 3 inputs ('|' delimited) - listed one per line
+//    1) Scenario Name
+//    2) 1st Child Scenario Name if Exists
+//    3) 2nd Child Scenario Name if Exists
+//------------------------------------------------------
+
+
+
+
+[ScenariosLoadedForComparsions:Begin]
+HPFv10aCC:White Spruce Elite Medium Sites (AC10/11)
+HPFv10aCTCC:White Spruce Elite Medium Sites (AC10/11)
+HPFv10aCC:Red Spruce Medium Sites (AC10/11)
+HPFv10aCTCC:Red Spruce Medium Sites (AC10/11)
+HPFv10aCTCTCC:Red Spruce Medium Sites (AC10/11)
+[ScenariosLoadedForComparsions:End]
+
+
+
+[ScenariosLoadedAsRegimes:Begin]
+HPFv10aCC:White Spruce Elite Medium Sites (AC10/11)
+HPFv10aCTCC:White Spruce Elite Medium Sites (AC10/11)
+HPFv10aCC:Red Spruce Medium Sites (AC10/11)
+HPFv10aCTCC:Red Spruce Medium Sites (AC10/11)
+HPFv10aCTCTCC:Red Spruce Medium Sites (AC10/11)
+[ScenariosLoadedAsRegimes:End]
